@@ -22,4 +22,10 @@ public class Local {
     @OneToMany(mappedBy = "local", cascade = CascadeType.REMOVE)
     private List<Camping> campingList = new ArrayList<>();
 
+    // 생성자
+    public Local() {}
+
+    public Local(String localName) {
+        this.localName = localName;
+    }
 }
