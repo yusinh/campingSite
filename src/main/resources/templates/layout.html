@@ -13,6 +13,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- 네비게이션바 -->
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
+
 <th:block layout:fragment="content"></th:block>
 </body>
+
+
+<style>
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+    .text-overlay {
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 6rem;
+            font-weight: bold;
+            font-family: "Nanum Pen Script", cursive;
+        }
+    .location-text {
+        color: black;
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: "Nanum Pen Script", cursive;
+        text-align: center;
+        margin-top: 20px; /* Adjusts the position vertically */
+    }
+     .location-divider {
+        width: 95%; /* Adjusts the width of the line */
+        height: 1px;
+        background: linear-gradient(to right, transparent, gray, transparent);
+        margin: 20px auto; /* Centers the line horizontally and adjusts vertical position */
+    }
+    .left-aligned-container {
+        text-align: left;
+        margin-left: 200px;
+    }
+    .left-aligned {
+        text-align: left;
+    }
+</style>
 </html>
+

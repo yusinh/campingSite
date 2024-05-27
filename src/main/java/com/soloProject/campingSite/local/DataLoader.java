@@ -1,6 +1,5 @@
 package com.soloProject.campingSite.local;
 
-import com.soloProject.campingSite.local.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
