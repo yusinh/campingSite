@@ -14,13 +14,13 @@ public class Camping {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String CampingName;
+    private String campingName;
 
     private String address;
 
-    private Integer Amount;
+    private Integer amount;
 
-    private Integer Personnel;
+    private Integer personnel;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Local local;

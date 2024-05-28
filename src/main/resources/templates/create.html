@@ -1,0 +1,53 @@
+<html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+<td layout:fragment="content">
+    <table th:action="@{|/local/${localId}/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post">
+        <tbody>
+        <tr style="margin-bottom: 20px;">
+            <td>
+                <p class="location-text left-aligned" style="margin-left: 20px; margin-top: -20px;">캠핑장 이름</p>
+            </td>
+            <td>
+                <div style="margin-bottom: 20px;">
+                    <input type="text" name="campingName" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <p th:if="${#fields.hasErrors('campingName')}" th:errors="*{campingName}"></p>
+                </div>
+            </td>
+        </tr>
+        <tr style="margin-bottom: 20px;">
+            <td>
+                <p class="location-text left-aligned" style="margin-left: 20px; margin-top: -14px;">주소</p>
+            </td>
+            <td>
+                <div style="margin-bottom: 20px;">
+                    <input type="text" name="address" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+                </div>
+            </td>
+        </tr>
+        <tr style="margin-bottom: 20px;">
+            <td>
+                <p class="location-text left-aligned" style="margin-left: 20px; margin-top: -16px;">금액</p>
+            </td>
+            <td>
+                <div style="margin-bottom: 20px;">
+                    <input type="text" name="amount" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></p>
+                </div>
+            </td>
+        </tr>
+        <tr style="margin-bottom: 20px;">
+            <td>
+                <p class="location-text left-aligned" style="margin-left: 20px; margin-top: -20px;">수용가능 인원</p>
+            </td>
+            <td>
+                <div style="margin-bottom: 20px;">
+                    <input type="text" name="personnel" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <p th:if="${#fields.hasErrors('personnel')}" th:errors="*{personnel}"></p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="저장" class="btn">
+</td>
+</html>
