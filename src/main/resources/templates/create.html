@@ -3,6 +3,67 @@
     <table>
         <form th:action="@{|/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post">
             <tbody>
+            <tr>
+                <td>
+                    <p class="location-text left-aligned" style="margin-left: 30px; margin-top: -20px;">지역</p>
+                </td>
+                <td>
+                    <div style="margin-bottom: 20px; margin-left: 60px; display: flex; flex-wrap: wrap;">
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="1" name="local" value="서울">
+                            <label for="1">서울</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="2" name="local" value="대전">
+                            <label for="2">대전</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="3" name="local" value="인천">
+                            <label for="3">인천</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="4" name="local" value="대구">
+                            <label for="4">대구</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="5" name="local" value="광주">
+                            <label for="5">광주</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="6" name="local" value="울산">
+                            <label for="6">울산</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="7" name="local" value="부산">
+                            <label for="7">부산</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="8" name="local" value="경기도">
+                            <label for="8">경기도</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="9" name="local" value="충청도">
+                            <label for="9">충청도</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="10" name="local" value="강원도">
+                            <label for="10">강원도</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="11" name="local" value="경상도">
+                            <label for="11">경상도</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="12" name="local" value="전라도">
+                            <label for="12">전라도</label>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <input type="radio" id="13" name="local" value="제주도">
+                            <label for="13">제주도</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             <tr style="margin-bottom: 20px;">
                 <td>
                     <p class="location-text left-aligned" style="margin-left: 30px; margin-top: -20px;">캠핑장 이름</p>
@@ -59,7 +120,7 @@
                 </td>
             </tr>
             </tbody>
-        <input type="submit" value="저장" class="btn">
+            <input type="submit" value="저장" class="btn">
         </form>
     </table>
 </td>
