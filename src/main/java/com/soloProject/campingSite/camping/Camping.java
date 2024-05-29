@@ -18,9 +18,11 @@ public class Camping {
 
     private String address;
 
-    private Integer amount;
+    private Long amount;
 
-    private Integer personnel;
+    private Long personnel;
+
+    private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Local local;

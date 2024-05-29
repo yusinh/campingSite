@@ -9,7 +9,7 @@
     <div style="display: flex; align-items: center; justify-content: center;">
         <p class="location-text" style="text-decoration: underline; text-decoration-color: skyblue; font-size: 3rem; margin-right: 30px;">지역</p>
         <div th:each="local : ${localList}">
-            <button class="btn btn-lg location-text" th:text="${local.localName}"></button>
+            <a class="btn btn-lg location-text" th:text="${local.localName}" th:href="@{|/local/${local.id}/detail|}"></a>
         </div>
     </div>
     <div class="location-divider"></div>

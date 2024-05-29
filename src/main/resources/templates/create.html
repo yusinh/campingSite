@@ -1,6 +1,6 @@
 <html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
 <td layout:fragment="content">
-    <table th:action="@{|/local/${localId}/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post">
+    <table th:action="@{|/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post">
         <tbody>
         <tr style="margin-bottom: 20px;">
             <td>
@@ -30,7 +30,7 @@
             </td>
             <td>
                 <div style="margin-bottom: 20px;">
-                    <input type="text" name="amount" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <input type="number" name="amount" class="input input-bordered input-md flex-grow max-w-md h-20" />
                     <p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></p>
                 </div>
             </td>
@@ -41,8 +41,19 @@
             </td>
             <td>
                 <div style="margin-bottom: 20px;">
-                    <input type="text" name="personnel" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <input type="number" name="personnel" class="input input-bordered input-md flex-grow max-w-md h-20" />
                     <p th:if="${#fields.hasErrors('personnel')}" th:errors="*{personnel}"></p>
+                </div>
+            </td>
+        </tr>
+        <tr style="margin-bottom: 20px;">
+            <td>
+                <p class="location-text left-aligned" style="margin-left: 20px; margin-top: -20px;">부가 설명</p>
+            </td>
+            <td>
+                <div style="margin-bottom: 20px;">
+                    <input type="text" name="description" class="input input-bordered input-md flex-grow max-w-md h-20" />
+                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
                 </div>
             </td>
         </tr>

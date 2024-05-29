@@ -1,11 +1,9 @@
 package com.soloProject.campingSite.camping;
 
-import com.soloProject.campingSite.local.Local;
 import com.soloProject.campingSite.local.LocalService;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -22,12 +20,13 @@ public class CampingService {
         campingRepository.save(camping);
     }
 
-    public void create(String campingName, String address, Integer amount, Integer personnel) {
+    public Camping create(String campingName, String address, Long amount, Long personnel, String description) {
         Camping camping = new Camping();
         camping.setCampingName(campingName);
         camping.setAddress(address);
         camping.setAmount(amount);
         camping.setPersonnel(personnel);
-        campingRepository.save(camping);
+        camping.setDescription(description);
+        return campingRepository.save(camping);
     }
 }

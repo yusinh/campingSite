@@ -1,9 +1,11 @@
 package com.soloProject.campingSite.camping;
 
+import com.soloProject.campingSite.local.Local;
+import com.soloProject.campingSite.local.LocalService;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -23,34 +25,44 @@ public class CampingController {
     public class CampingForm {
         @NotEmpty(message = "캠핑장 이름을 입력해주세요.")
         private String campingName;
+
         @NotEmpty(message = "주소를 입력해주세요.")
         private String address;
-        @NotEmpty(message = "가격을 입력해주세요.")
-        private Integer amount;
-        @NotEmpty(message = "수용 가능인원을 입력해주세요.")
-        private Integer personnel;
+
+        @NotNull(message = "가격을 입력해주세요.")
+        @Min(value = 1, message = "가격은 1 이상이어야 합니다.")
+        private Long amount;
+
+        @NotNull(message = "수용 가능인원을 입력해주세요.")
+        @Min(value = 1, message = "수용 가능인원은 1 이상이어야 합니다.")
+        private Long personnel;
+
+        @NotEmpty(message = "부가 설명을 입력해주세요.")
+        private String description;
     }
 
-    @PostMapping("/local/{localId}/create")
-    public String create(@PathVariable("localId") Long localId,
-                         @Valid CampingForm campingForm,
-                         BindingResult bindingResult) {
+    @PostMapping("/create")
+    public String create(Model model, @Valid CampingForm campingForm, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "redirect:/";
+            return "create";
         }
 
-        this.campingService.create(
+        campingService.create(
                 campingForm.getCampingName(),
                 campingForm.getAddress(),
                 campingForm.getAmount(),
-                campingForm.getPersonnel()
+                campingForm.getPersonnel(),
+                campingForm.getDescription()
         );
         return "redirect:/";
     }
 
-
     @GetMapping("/create")
     public String create(CampingForm campingForm) { return "create"; }
+
+
+
+
 
     }
