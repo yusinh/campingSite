@@ -14,11 +14,4 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LocalController {
 
-//    @GetMapping("/local/${localId}/detail")
-//    public String detail(Model model, @PathVariable("localId") Long localId) {
-//
-//
-//    }
-
-
 }

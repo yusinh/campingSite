@@ -1,7 +1,7 @@
 <html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
 <td layout:fragment="content">
     <table>
-        <form th:action="@{|/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post" id="campingForm" onsubmit="addSelectedIdToForm()">
+        <form th:action="@{|/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post" id="campingForm" enctype="multipart/form-data" onsubmit="addSelectedIdToForm()">
             <tbody>
             <tr>
                 <td>
@@ -116,6 +116,17 @@
                     <div style="margin-bottom: 20px;">
                         <textarea type="text" name="description" class="input input-bordered input-md flex-grow max-w-md h-20" style="width: 900px; margin-left: 60px;"> </textarea>
                         <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="location-text left-aligned" style="margin-left: 30px; margin-top: -20px;">사진</p>
+                </td>
+                <td>
+                    <div style="margin-bottom: 20px;">
+                        <input type="file" name="photo" class="input input-bordered input-md flex-grow max-w-md h-20" style="width: 900px; margin-left: 60px;" />
+                        <p th:if="${#fields.hasErrors('photo')}" th:errors="*{photo}"></p>
                     </div>
                 </td>
             </tr>
