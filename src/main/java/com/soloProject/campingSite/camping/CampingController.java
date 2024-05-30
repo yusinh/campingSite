@@ -42,7 +42,7 @@ public class CampingController {
     }
 
     @PostMapping("/create")
-    public String create(Model model, @Valid CampingForm campingForm, BindingResult bindingResult) {
+    public String create(Model model, @Valid CampingForm campingForm, BindingResult bindingResult, @RequestParam("localId") Long localId) {
 
         if (bindingResult.hasErrors()) {
             return "create";
@@ -53,7 +53,8 @@ public class CampingController {
                 campingForm.getAddress(),
                 campingForm.getAmount(),
                 campingForm.getPersonnel(),
-                campingForm.getDescription()
+                campingForm.getDescription(),
+                localId
         );
         return "redirect:/";
     }

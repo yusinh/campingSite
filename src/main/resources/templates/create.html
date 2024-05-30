@@ -1,7 +1,7 @@
 <html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
 <td layout:fragment="content">
     <table>
-        <form th:action="@{|/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post">
+        <form th:action="@{|/create|}" th:object="${campingForm}" class="flex flex-col gap-7" method="post" id="campingForm" onsubmit="addSelectedIdToForm()">
             <tbody>
             <tr>
                 <td>
@@ -10,55 +10,55 @@
                 <td>
                     <div style="margin-bottom: 20px; margin-left: 60px; display: flex; flex-wrap: wrap;">
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="1" name="local" value="서울">
+                            <input type="radio" id="1" name="local" value="1">
                             <label for="1">서울</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="2" name="local" value="대전">
+                            <input type="radio" id="2" name="local" value="2">
                             <label for="2">대전</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="3" name="local" value="인천">
+                            <input type="radio" id="3" name="local" value="3">
                             <label for="3">인천</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="4" name="local" value="대구">
+                            <input type="radio" id="4" name="local" value="4">
                             <label for="4">대구</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="5" name="local" value="광주">
+                            <input type="radio" id="5" name="local" value="5">
                             <label for="5">광주</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="6" name="local" value="울산">
+                            <input type="radio" id="6" name="local" value="6">
                             <label for="6">울산</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="7" name="local" value="부산">
+                            <input type="radio" id="7" name="local" value="7">
                             <label for="7">부산</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="8" name="local" value="경기도">
+                            <input type="radio" id="8" name="local" value="8">
                             <label for="8">경기도</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="9" name="local" value="충청도">
+                            <input type="radio" id="9" name="local" value="9">
                             <label for="9">충청도</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="10" name="local" value="강원도">
+                            <input type="radio" id="10" name="local" value="10">
                             <label for="10">강원도</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="11" name="local" value="경상도">
+                            <input type="radio" id="11" name="local" value="11">
                             <label for="11">경상도</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="12" name="local" value="전라도">
+                            <input type="radio" id="12" name="local" value="12">
                             <label for="12">전라도</label>
                         </div>
                         <div style="margin-right: 20px;">
-                            <input type="radio" id="13" name="local" value="제주도">
+                            <input type="radio" id="13" name="local" value="13">
                             <label for="13">제주도</label>
                         </div>
                     </div>
@@ -125,3 +125,26 @@
     </table>
 </td>
 </html>
+
+<script>
+    function getSelectedId() {
+        var radios = document.getElementsByName('local');
+        var selectedId;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                selectedId = radios[i].value;
+                break;
+            }
+        }
+        return selectedId;
+    }
+
+    function addSelectedIdToForm() {
+        var selectedId = getSelectedId();
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "localId");
+        hiddenField.setAttribute("value", selectedId);
+        document.getElementById('campingForm').appendChild(hiddenField);
+    }
+</script>
