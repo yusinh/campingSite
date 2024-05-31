@@ -1,11 +1,15 @@
 <html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
-    <body>
-        <div layout:fragment="content">
-
-
-
-
-
+<body>
+<div layout:fragment="content">
+    <div th:each="camping : ${campingList}">
+        <div class="flex w-full">
+            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">
+                <img th:src="@{${camping.photoUrl}}" alt="캠핑 사진">
+            </div>
+            <div class="divider divider-horizontal"></div>
+            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>

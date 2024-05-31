@@ -26,7 +26,4 @@ public class CampingForm {
 
     @NotEmpty(message = "부가 설명을 입력해주세요.")
     private String description;
-
-    @NotNull(message = "사진을 업로드해주세요.")
-    private MultipartFile photo;
 }

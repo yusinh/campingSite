@@ -24,8 +24,6 @@ public class Camping {
 
     private String description;
 
-    private String photoUrl;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Local local;
 }
